@@ -1,4 +1,3 @@
-<script setup></script>
 <template>
   <section class="notice_gallery">
     <div class="notice">
