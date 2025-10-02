@@ -12,24 +12,11 @@
       }"
       :navigation="true"
       :loop="true">
-      <swiper-slide>
-        <img src="https://picsum.photos/id/1011/1200/400" alt="slide" />
-      </swiper-slide>
-      <swiper-slide>
-        <img src="https://picsum.photos/id/1012/1200/400" alt="slide" />
-      </swiper-slide>
-      <swiper-slide>
-        <img src="https://picsum.photos/id/1013/1200/400" alt="slide" />
-      </swiper-slide>
-      <swiper-slide>
-        <img src="https://picsum.photos/id/1014/1200/400" alt="slide" />
-      </swiper-slide>
-      <swiper-slide>
-        <img src="https://picsum.photos/id/1015/1200/400" alt="slide" />
-      </swiper-slide>
-      <swiper-slide>
-        <img src="https://picsum.photos/id/1016/1200/400" alt="slide" />
-      </swiper-slide>
+      <swiperSlide v-for="(slide, i) in slides" :key="i">
+        <!-- i: index -->
+        <!-- <img :src="slide.img" :alt="'slide' + i" /> -->
+        <img :src="slide.img" :alt="`slide ${i + 1}`" />
+      </swiperSlide>
     </swiper>
   </section>
 </template>
@@ -43,6 +30,16 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+
+// 슬라이드 더미 데이터
+const slides = [
+  { img: "https://picsum.photos/id/1011/1200/400" },
+  { img: "https://picsum.photos/id/1012/1200/400" },
+  { img: "https://picsum.photos/id/1013/1200/400" },
+  { img: "https://picsum.photos/id/1014/1200/400" },
+  { img: "https://picsum.photos/id/1015/1200/400" },
+  { img: "https://picsum.photos/id/1016/1200/400" },
+];
 </script>
 <style scoped>
 .visual img {

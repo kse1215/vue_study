@@ -4,21 +4,27 @@
     <div class="notice">
       <h2>공지사항</h2>
       <ul>
-        <li>9월 휴무 안내</li>
-        <li>새로운 서비스 출시</li>
-        <li>이벤트 참여 방법 안내</li>
+        <li v-for="(notice, i) in notices" :key="i">{{ i + 1 }}. {{ notice }}</li>
       </ul>
     </div>
     <div class="gallery">
       <h2>갤러리</h2>
       <div class="grid">
-        <img src="https://picsum.photos/id/1020/200/150" alt="이미지1" />
-        <img src="https://picsum.photos/id/1021/200/150" alt="이미지2" />
-        <img src="https://picsum.photos/id/1022/200/150" alt="이미지3" />
+        <img v-for="(img, i) in gallery" :key="i" :alt="`이미지 ${i + 1}`" :src="img" />
       </div>
     </div>
   </section>
 </template>
+
+<script setup>
+const notices = ["9월 휴무 안내", "새로운 서비스 출시", "이벤트 참여 방법 안내"];
+const gallery = [
+  "https://picsum.photos/id/1020/200/150",
+  "https://picsum.photos/id/1021/200/150",
+  "https://picsum.photos/id/1022/200/150",
+];
+</script>
+
 <style scoped>
 .notice_gallery {
   display: flex;
